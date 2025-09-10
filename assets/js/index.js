@@ -1,0 +1,44 @@
+// --- Modo oscuro/claro ---
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Revisar si ya hay un tema guardado
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark");
+  themeToggle.textContent = "☀️";
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  const isDark = body.classList.contains("dark");
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+
+// --- Animaciones para cards al hacer scroll ---
+const cards = document.querySelectorAll(".card");
+
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      entry.target.classList.remove("hidden-up");
+    } else {
+      entry.target.classList.remove("visible");
+      entry.target.classList.add("hidden-up");
+    }
+  });
+}, { threshold: 0.3 });
+
+cards.forEach(card => cardObserver.observe(card));
+
+
+function downloadCV() {
+  const link = document.createElement('a');
+  link.href = 'assets/PruebaCV.pdf'; // En donde se encuentra el pfd
+  link.download = 'Carlos-CV.pdf'; // Nombre que tendrá el archivo al descargarse
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}

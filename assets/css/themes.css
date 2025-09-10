@@ -1,0 +1,22 @@
+:root {
+    --body-bg: #ffffff;
+    --body-text: #000000;
+    --star-bg: #000000;
+    --item-bg: #E7E7E7;
+    --border: #CFCFCF;
+    --icon-bdr: #000000;
+}
+
+body.dark {
+    --body-bg: #000000;
+    --body-text: #ffffff;
+    --star-bg: #ffffff;    
+    --item-bg: #323232;
+    --border: #4f4f4f;
+    --icon-bdr: #ffffff;
+}
+
+body {
+    background: var(--body-bg);
+}
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio con fondo estrellado</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+</head>
+
+<body>
+    <div class="stars-background">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li class="active"><a href="#home">Home</a></li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <a href="#skills">Hablilidades</a>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>
+                    <a href="#projects">Proyectos</a>
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                    <a href="">Contacto</a>
+                </li>
+            </ul>
+            <button class="modebutton" id="theme-toggle">☀️</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro-section" id="home">
+            <img src="assets/img/dev2.svg" alt="Descripción de la imagen">
+            <div class="intro-text">
+                <div class="text">
+                    <h2>¡Hola! Soy Carlos</h2>
+                    <p>Desarrollador apasionado por crear experiencias digitales únicas. 
+                        Bienvenido a mi portafolio.</p>
+                </div>
+                <div class="accions">
+                    <button class="cv" onclick="downloadCV()">Descargar CV</button>
+                    <a href="#">Linkedln</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills">
+            <h3>Mis habilidades</h3>
+            <div class="container-skills">
+                <div class="card">
+                    <img src="assets/img/logo_html5.png" alt="">
+                </div>
+                <div class="card">
+                    <img src="assets/img/logo_css.png" alt="">
+                </div>
+                <div class="card">
+                    <img src="assets/img/logo_laravel.png" alt="">
+                </div>
+                <div class="card">
+                    <img src="assets/img/logo_python.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+            <h3>Mis Proyectos</h3>
+            <div class="project-container">
+                <div class="project-text">
+                    <h4>GitHub</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Impedit commodi ad repellendus! Molestiae dolorum tempore optio 
+                        numquam beatae asperiores reiciendis cupiditate, omnis dignissimos non mollitia, 
+                        odit illum ea, voluptas ducimus.</p>
+                </div>
+                <img src="assets/img/github.webp" alt="Proyecto 1">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Carlos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+
+</body>
+
+</html>
