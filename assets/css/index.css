@@ -151,35 +151,55 @@ main {
   padding: 30px;
   border: 1px solid var(--border);
   width: 100%;
-  animation: fadeInUp 1s ease-out;
   scroll-margin-top: 20px;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .intro-section img {
   width: 300px;
   border-radius: 10px;
+  animation: fadeLeft 1s ease-out;
 }
 
 .intro-text {
   flex: 1;
   color: var(--body-text);
+  animation: fadeRight 1s ease-out;
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .intro-text h2 {
-  font-size: 28px;
+  font-size: 36px;
+  font-weight: 700;
   margin-bottom: 10px;
+}
+
+.wave {
+  display: inline-block;
+  animation: wave 2s infinite;
+  transform-origin: 70% 70%;
+}
+
+.wellcome {
+  margin-top: 5px;
+  font-size: 19px;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(15deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .intro-text p {
@@ -202,10 +222,14 @@ main {
   cursor: pointer;
   padding: 6px;
   width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 .cv:hover {
   background-color: var(--border);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .accions a {
