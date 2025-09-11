@@ -36,8 +36,8 @@ cards.forEach(card => cardObserver.observe(card));
 
 function downloadCV() {
   const link = document.createElement('a');
-  link.href = 'assets/PruebaCV.pdf'; // En donde se encuentra el pfd
-  link.download = 'Carlos-CV.pdf'; // Nombre que tendrá el archivo al descargarse
+  link.href = 'assets/CV_CAMS.pdf'; // En donde se encuentra el PDF
+  link.download = 'CV_CAMS.pdf'; // Nombre que tendrá el archivo al descargarse
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
