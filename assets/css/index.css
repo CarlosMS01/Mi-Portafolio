@@ -109,6 +109,11 @@ nav ul li svg {
   color: var(--icon-bdr);
 }
 
+nav ul li svg:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
 nav a {
   text-decoration: none;
   color: var(--body-text);
@@ -236,7 +241,12 @@ main {
   text-decoration: none;
   color: var(--body-text);
   padding: 5px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+.accions a:hover {
+  color: var(--icon-bdr);
+  border-bottom: 2px solid var(--icon-bdr);
 }
 
 .skills-section {
@@ -356,6 +366,13 @@ main {
   cursor: pointer;
   transition: opacity 0.3s ease;
   z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 .scroll-top-btn svg {
