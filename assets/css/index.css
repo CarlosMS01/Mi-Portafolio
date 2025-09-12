@@ -29,7 +29,7 @@ body {
   position: absolute;
   width: 10px;
   height: 10px;
-  background: var(--star-bg);
+  background-color: var(--star-bg);
   border-radius: 50%;
   clip-path: polygon(50% 0%,
       61% 35%,
@@ -99,7 +99,7 @@ header {
 
 .navbar li:hover {
   border: 1px solid var(--border);
-  background: var(--item-bg);
+  background-color: var(--item-bg);
 }
 
 nav ul li svg {
@@ -116,12 +116,12 @@ nav a {
 
 nav .active {
   border: 1px solid var(--border);
-  background: var(--item-bg);
+  background-color: var(--item-bg);
 }
 
 .modebutton {
   border: 1px solid var(--border);
-  background: var(--item-bg);
+  background-color: var(--item-bg);
   cursor: pointer;
   border-radius: 25px;
   height: 30px;
@@ -217,7 +217,7 @@ main {
 .cv {
   border: 1px solid var(--border);
   border-radius: 25px;
-  background: var(--body-bg);
+  background-color: var(--body-bg);
   color: var(--body-text);
   cursor: pointer;
   padding: 6px;
@@ -342,6 +342,31 @@ main {
   .project-text h4 {
     font-size: 1.1rem;
   }
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: var(--item-bg);
+  color: white;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top-btn svg {
+  width: 25px;
+  height: 25px;
+  color: var(--icon-bdr);
+}
+
+.scroll-top-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 footer {
