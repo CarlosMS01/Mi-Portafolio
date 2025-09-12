@@ -34,6 +34,22 @@ const cardObserver = new IntersectionObserver((entries) => {
 cards.forEach(card => cardObserver.observe(card));
 
 
+// --- Botón "Scroll to Top" ---
+const scrollBtn = document.querySelector('.scroll-top-btn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    scrollBtn.classList.remove('hidden');
+  } else {
+    scrollBtn.classList.add('hidden');
+  }
+});
+
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// --- Función "escargar el CV" ---
 function downloadCV() {
   const link = document.createElement('a');
   link.href = 'assets/CV_CAMS.pdf'; // En donde se encuentra el PDF
