@@ -5,6 +5,8 @@
     --item-bg: #E7E7E7;
     --border: #CFCFCF;
     --icon-bdr: #000000;
+    --cursordot-bg: #00aaff;
+    --border-ring: #000000;
 }
 
 body.dark {
@@ -14,6 +16,8 @@ body.dark {
     --item-bg: #323232;
     --border: #4f4f4f;
     --icon-bdr: #ffffff;
+    --cursordot-bg: #00aaff;
+    --border-ring: #ffffff;
 }
 
 body {
