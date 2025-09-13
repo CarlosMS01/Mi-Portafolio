@@ -149,6 +149,7 @@ main {
 .intro-section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 40px;
   background-color: var(--item-bg);
@@ -257,7 +258,7 @@ main {
 
 .skills-section h3 {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   color: var(--body-text);
 }
 
@@ -291,13 +292,37 @@ main {
   transform: translateY(50px);
 }
 
+.card-title {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--body-text);
+  transform: translateY(-75%);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.card-title span {
+  background-color: var(--item-bg);
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 5px;
+}
+
 .card img {
   width: 120px;
   height: auto;
   transition: transform 0.3s ease;
 }
 
-.card img:hover {
+.card:hover .card-title {
+  opacity: 1;
+}
+
+.card:hover img {
   transform: scale(1.1);
 }
 
