@@ -167,10 +167,14 @@ main {
   scroll-margin-top: 20px;
 }
 
+.cont-img {
+  animation: fadeLeft 1s ease-out;
+}
+
 .intro-section img {
   width: 300px;
   border-radius: 10px;
-  animation: fadeLeft 1s ease-out;
+  animation: float 3s ease-in-out infinite;
 }
 
 .intro-text {
@@ -391,6 +395,13 @@ main {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
+}
+
+/* Animación de flotar */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 /* ================================
