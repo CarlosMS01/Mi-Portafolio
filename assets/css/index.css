@@ -72,11 +72,13 @@ header {
 }
 
 .navbar {
-  border: 1px solid var(--border);
+  border: 1px solid var(--item-brd);
   border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--item1-bg);
+  box-shadow: var(--shadow-box);
 }
 
 .navbar ul {
@@ -99,8 +101,8 @@ header {
 }
 
 .navbar li:hover {
-  border: 1px solid var(--border);
-  background-color: var(--item-bg);
+  border: 1px solid var(--item-brd);
+  background-color: var(--item2-bg);
 }
 
 nav ul li svg {
@@ -110,27 +112,30 @@ nav ul li svg {
   color: var(--icon-bdr);
 }
 
-nav ul li svg:hover {
+li:hover svg {
   transform: scale(1.2);
   transition: transform 0.3s ease;
 }
 
 nav a {
+  
   text-decoration: none;
   color: var(--body-text);
+  font-family: var(--font-main);
+  font-size: 16px;
 }
 
 nav .active {
-  border: 1px solid var(--border);
-  background-color: var(--item-bg);
+  border: 1px solid var(--item-brd);
+  background-color: var(--item2-bg);
 }
 
 /* ================================
       Botón de modo oscuro
 ================================ */
 .modebutton {
-  border: 1px solid var(--border);
-  background-color: var(--item-bg);
+  border: 1px solid var(--item-brd);
+  background-color: var(--item1-bg);
   cursor: pointer;
   border-radius: 25px;
   height: 30px;
@@ -142,7 +147,7 @@ main {
   position: relative;
   z-index: 1;
   padding: 60px 20px;
-  max-width: 1000px;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -159,48 +164,45 @@ main {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  background-color: var(--item-bg);
   border-radius: 15px;
   padding: 30px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--item-brd);
   width: 100%;
   scroll-margin-top: 20px;
 }
 
-.cont-img {
+.cont-svg {
+  display: grid;
+  place-content: center;
   animation: fadeLeft 1s ease-out;
-}
-
-.intro-section img {
-  width: 300px;
-  border-radius: 10px;
-  animation: float 3s ease-in-out infinite;
 }
 
 .intro-text {
   flex: 1;
   color: var(--body-text);
   animation: fadeRight 1s ease-out;
+  width: 100%;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: var(--item1-bg);
+  border: 1px solid var(--item-brd);
+  box-shadow: var(--shadow-box);
 }
 
-.intro-text h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 10px;
+.typewriter {
+  font-family: var(--font-main);
+  font-size: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-.wave {
-  display: inline-block;
-  animation: wave 2s infinite;
-  transform-origin: 70% 70%;
-}
-
-.wellcome {
-  margin-top: 5px;
-  font-size: 19px;
+.cursor {
+  animation: blinkcursor 0.7s infinite;
 }
 
 .intro-text p {
+  font-family: var(--font-main);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -213,19 +215,21 @@ main {
 }
 
 .cv {
-  border: 1px solid var(--border);
+  border: 1px solid var(--item-brd);
   border-radius: 25px;
-  background-color: var(--body-bg);
+  background-color: var(--item1-bg);
   color: var(--body-text);
   cursor: pointer;
   padding: 6px;
   width: 150px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  font-family: var(--font-main);
+  font-size: 16px;
 }
 
 .cv:hover {
-  background-color: var(--border);
+  background-color: var(--item2-bg);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
@@ -234,12 +238,14 @@ main {
   text-decoration: none;
   color: var(--body-text);
   padding: 5px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--item-brd);
+  font-family: var(--font-main);
+  font-size: 16px;
 }
 
 .accions a:hover {
   color: var(--icon-bdr);
-  border-bottom: 2px solid var(--icon-bdr);
+  border-bottom: var(--link-brd);
 }
 
 /* ================================
@@ -267,14 +273,15 @@ main {
 .card {
   width: 200px;
   height: 200px;
-  border: 1px solid var(--border);
-  background-color: var(--item-bg);
+  border: 1px solid var(--item-brd);
+  background-color: var(--item1-bg);
   border-radius: 25px;
   display: grid;
   place-content: center;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.6s ease-out;
+  box-shadow: var(--shadow-box);
 }
 
 .card.visible {
@@ -301,8 +308,8 @@ main {
 }
 
 .card-title span {
-  background-color: var(--item-bg);
-  border: 1px solid var(--border);
+  background-color: var(--item2-bg);
+  border: 1px solid var(--item-brd);
   padding: 8px;
   border-radius: 5px;
 }
@@ -354,7 +361,48 @@ main {
 .project-container img {
   max-width: 500px;
   height: auto;
-  box-shadow: 0 8px 16px var(--border);
+  box-shadow: var(--shadow-box);
+}
+
+
+
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid var(--item-brd);
+  border-radius: 15px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.info {
+  width: 400px;
+  color: var(--body-text);
+}
+
+.info p {
+  font-size: 18px;
+  font-family: var(--font-main);
+}
+
+.email {
+  font-weight: bold;
+}
+
+/* ================================
+      Footer
+================================ */
+
+footer {
+  display: grid;
+  place-content: center;
+  color: var(--body-text);
+  height: 60px;
+  font-family: var(--font-main);
+  font-size: 18px;
 }
 
 /* ================================
@@ -404,6 +452,12 @@ main {
   100% { transform: translateY(0); }
 }
 
+/* Animación de parpadeo del cursor */
+@keyframes blinkcursor {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 /* ================================
       Responsive
 ================================ */
@@ -427,6 +481,19 @@ main {
   .cursor-ring {
     display: none;
   }
+
+  .cont-svg svg {
+    width: 100%;
+  }
+
+  .typewriter {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .avatar svg {
+    width: 100%;
+  }
 }
 
 /* ================================
@@ -439,9 +506,9 @@ main {
   bottom: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: var(--item-bg);
+  background-color: var(--item1-bg);
   color: white;
-  border: 2px solid var(--border);
+  border: 2px solid var(--item-brd);
   border-radius: 50%;
   cursor: pointer;
   transition: opacity 0.3s ease;
@@ -452,7 +519,7 @@ main {
 .scroll-top-btn svg {
   width: 25px;
   height: 25px;
-  color: var(--icon-bdr);
+  color: var(--icon-scroll-clr);
 }
 
 .scroll-top-btn.hidden {
@@ -481,15 +548,4 @@ main {
   border: 2px solid var(--border-ring);
   border-radius: 50%;
   transition: transform 0.1s ease;
-}
-
-/* ================================
-      Footer
-================================ */
-
-footer {
-  display: grid;
-  place-content: center;
-  color: var(--body-text);
-  height: 60px;
 }

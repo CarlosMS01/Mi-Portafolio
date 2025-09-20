@@ -1,5 +1,5 @@
 // ==============================
-// 🌗 Tema Oscuro/Claro
+//  Tema Oscuro/Claro
 // ==============================
 (function handleThemeToggle() {
   const themeToggleBtn = document.getElementById("theme-toggle");
@@ -21,7 +21,7 @@
 })();
 
 // ==============================
-// 🃏 Animaciones de Cards al Scroll
+//  Animaciones de Cards al Scroll
 // ==============================
 (function observeCardsOnScroll() {
   const cards = document.querySelectorAll(".card");
@@ -37,7 +37,7 @@
 })();
 
 // ==============================
-// ⬆️ Botón "Scroll to Top"
+//  Botón "Scroll to Top"
 // ==============================
 (function setupScrollToTopButton() {
   const scrollBtn = document.querySelector(".scroll-top-btn");
@@ -54,7 +54,7 @@
 })();
 
 // ==============================
-// 📄 Descargar CV
+//  Descargar CV
 // ==============================
 function downloadCV() {
   const link = document.createElement("a");
@@ -66,7 +66,7 @@ function downloadCV() {
 }
 
 // ==============================
-// 🖱️ Cursor personalizado
+//  Cursor personalizado
 // ==============================
 (function animateCustomCursor() {
   const dot = document.querySelector(".cursor-dot");
@@ -101,4 +101,204 @@ function downloadCV() {
   }
 
   animate();
+})();
+
+// ==============================
+//  Parpadeo doble de luz
+// ==============================
+(function parpadeoDoble() {
+  const tl = gsap.timeline({
+    repeat: -1,                // se repite infinitamente
+    repeatDelay: 6             // espera entre ciclos
+  });
+
+  tl.to(".Luz", {
+    opacity: 0.15,             // se atenúa la luz
+    duration: 0.08,            // cierre rápido
+    ease: "power1.in"
+  })
+  .to(".Luz", {
+    opacity: 0.7,              // vuelve a encender
+    duration: 0.12,            // apertura más suave
+    ease: "power2.out"
+  })
+  .to(".Luz", {
+    opacity: 0.15,             // segundo apagón
+    duration: 0.08,
+    ease: "power1.in"
+  })
+  .to(".Luz", {
+    opacity: 0.7,              // encendida de nuevo
+    duration: 0.12,
+    ease: "power2.out"
+  });
+})();
+
+
+
+
+// ==============================
+//  Animación secuencial con BarCodes
+// ==============================
+(function animarBarCodes() {
+  const tl = gsap.timeline({ repeat: -1, repeatDelay: 10 });
+
+  // Oculta los elementos al inicio del ciclo
+  tl.set(".Tarjeta", { opacity: 0 });
+  tl.set(".Imagen", { opacity: 0 });
+  tl.set(".Texto", { opacity: 0 });
+  tl.set(".Boton1", { opacity: 0 });
+  tl.set(".Boton2", { opacity: 0 });
+  tl.set(".Boton3", { opacity: 0 });
+
+  const barcodes = [
+    { code: ".BarCode1", target: ".Tarjeta" },
+    { code: ".BarCode2", target: ".Imagen" },
+    { code: ".BarCode3", target: ".Texto" },
+    { code: ".BarCode4", target: ".Boton1" },
+    { code: ".BarCode5", target: ".Boton2" },
+    { code: ".BarCode6", target: ".Boton3" }
+  ];
+
+  barcodes.forEach(({ code, target }) => {
+    tl.from(code, {
+      scaleX: 0,
+      transformOrigin: "left center",
+      duration: 0.4,
+      ease: "power2.out"
+    });
+    tl.to(target, {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+})();
+
+
+// ==============================
+//  Ejecucion de las animaciones
+// ==============================
+window.addEventListener("load", () => {
+  parpadeoDoble();
+  animarBarCodes();
+});
+
+
+// ==============================
+//  Animación de texto tipo máquina de escribir
+// ==============================
+function typewriterEffect({ selector, texts, delay = 100, eraseDelay = 50, pause = 2000 }) {
+  const textElement = document.querySelector(selector);
+  if (!textElement) return;
+
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+
+  const cursor = textElement.nextElementSibling;
+  if (cursor) cursor.style.animation = "none";
+
+  function type() {
+    if (count === texts.length) count = 0;
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+    textElement.textContent = letter;
+
+    if (letter.length === currentText.length) {
+      if (cursor) cursor.style.animation = "blink 0.7s infinite";
+      setTimeout(erase, pause);
+    } else {
+      setTimeout(type, delay);
+    }
+  }
+
+  function erase() {
+    if (cursor) cursor.style.animation = "none";
+
+    if (index > 0) {
+      index--;
+      letter = currentText.slice(0, index);
+      textElement.textContent = letter;
+      setTimeout(erase, eraseDelay);
+    } else {
+      count++;
+      index = 0;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
+}
+
+typewriterEffect({
+  selector: "#text1",
+  texts: ["</ Bienvenidos >", "</ Soy Carlos >", "</ Backend Developer >"]
+});
+
+typewriterEffect({
+  selector: "#text2",
+  texts: ["Hey, por aquí."],
+  delay: 80,
+  eraseDelay: 40,
+  pause: 1500
+});
+
+// ==============================
+//  Parpadeo de ojos (Blink)
+// ==============================
+(function animarParpadeoOjos() {
+  const blinkTimeline = gsap.timeline({ repeat: -1, repeatDelay: 5 });
+
+  blinkTimeline
+    .to("#OjoIzquierdo, #OjoDerecho", {
+      scaleY: 0.1,
+      duration: 0.09,
+      ease: "power1.in"
+    })
+    .to("#OjoIzquierdo, #OjoDerecho", {
+      scaleY: 1,
+      duration: 0.09,
+      ease: "power1.out"
+    });
+})();
+
+// ==============================
+//  Movimiento facial con cursor
+// ==============================
+(function animarPartesFaciales() {
+  const partes = [
+    { id: "#Cabeza", factor: 1 },
+    { id: "#Cabello", factor: 1.5 },
+    { id: "#Gafas", factor: 2 },
+    { id: "#OjoIzquierdo", factor: 3 },
+    { id: "#OjoDerecho", factor: 3 },
+    { id: "#CejaIzquierda", factor: 2.5 },
+    { id: "#CejaDerecha", factor: 2.5 },
+    { id: "#Nariz", factor: 1.8 },
+    { id: "#Boca", factor: 2 },
+    { id: "#OyueloIzquierdo", factor: 1.5 },
+    { id: "#OyueloDerecho", factor: 1.5 },
+    { id: "#OidoIzquierdo", factor: 0.8 },
+    { id: "#OidoDerecho", factor: 0.8 },
+    { id: "#CabezaMovible", factor: 1.5 }
+  ];
+
+  document.addEventListener("mousemove", (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5);
+    const y = (e.clientY / window.innerHeight - 0.5);
+
+    partes.forEach(({ id, factor }) => {
+      const el = document.querySelector(id);
+      if (el) {
+        gsap.to(el, {
+          x: x * factor * 10,
+          y: y * factor * 10,
+          duration: 0.5,
+          ease: "power3.out"
+        });
+      }
+    });
+  });
 })();
