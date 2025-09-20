@@ -24,7 +24,7 @@
 //  Animaciones de Cards al Scroll
 // ==============================
 (function observeCardsOnScroll() {
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".skill-card");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting }) => {
@@ -234,7 +234,7 @@ function typewriterEffect({ selector, texts, delay = 100, eraseDelay = 50, pause
 
 typewriterEffect({
   selector: "#text1",
-  texts: ["</ Bienvenidos >", "</ Soy Carlos >", "</ Backend Developer >"]
+  texts: ["</ Sean bienvenidos >", "</ Soy Carlos >", "</ Backend Developer >"]
 });
 
 typewriterEffect({
