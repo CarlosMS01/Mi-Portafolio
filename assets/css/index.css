@@ -1,3 +1,20 @@
+:root {
+  /* Tamaño extra pequeño: etiquetas pequeñas, notas o elementos secundarios */
+  --font-size-xs: clamp(0.8rem, 1vw, 0.9rem);
+
+  /* Tamaño pequeño: base para párrafos, botones o enlaces secundarios */
+  --font-size-sm: clamp(1rem, 1.5vw, 1.1rem);
+
+  /* Tamaño medio: subtítulos, encabezados pequeños o textos destacados */
+  --font-size-md: clamp(1.2rem, 2vw, 1.4rem);
+
+  /* Tamaño grande: títulos principales o bloques importantes */
+  --font-size-lg: clamp(1.5rem, 3vw, 2rem);
+
+  /* Tamaño extra grande: hero text, encabezados de secciones o animaciones tipográficas */
+  --font-size-xl: clamp(2rem, 5vw, 3rem);
+}
+
 /* ================================
       Reset y comportamiento base
 ================================ */
@@ -15,6 +32,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 /* ================================
@@ -155,9 +173,10 @@ header {
 }
 
 nav ul li svg {
-  width: 25px;
-  height: 25px;
-  padding-right: 5px;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+  padding-right: 3px;
   color: var(--icon-bdr);
 }
 
@@ -167,11 +186,10 @@ li:hover svg {
 }
 
 nav a {
-
   text-decoration: none;
   color: var(--body-text);
   font-family: var(--font-main);
-  font-size: 16px;
+  font-size: var(--font-size-sm);
 }
 
 nav .active {
@@ -226,6 +244,10 @@ main {
   animation: fadeLeft 1s ease-out;
 }
 
+.cont-svg svg {
+  display: block;
+}
+
 .intro-text {
   flex: 1;
   color: var(--body-text);
@@ -242,7 +264,6 @@ main {
 
 .typewriter {
   font-family: var(--font-main);
-  font-size: 28px;
   white-space: nowrap;
   overflow: hidden;
   margin-bottom: 20px;
@@ -252,10 +273,20 @@ main {
   animation: blinkcursor 0.7s infinite;
 }
 
+#text1, #text2 {
+  white-space: normal;
+  max-width: 100%;
+}
+
+
+.intro-text h1 {
+  font-size: var(--font-size-lg);
+  line-height: 1.2;
+}
+
 .intro-text p {
   font-family: var(--font-main);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: var(--font-size-sm);
 }
 
 .accions {
@@ -276,7 +307,7 @@ main {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   font-family: var(--font-main);
-  font-size: 16px;
+  font-size: var(--font-size-sm);
 }
 
 .cv:hover {
@@ -291,7 +322,7 @@ main {
   padding: 5px;
   border-bottom: 2px solid var(--item-brd);
   font-family: var(--font-main);
-  font-size: 16px;
+  font-size: var(--font-size-sm);
 }
 
 .accions a:hover {
@@ -308,20 +339,22 @@ main {
   scroll-margin-top: 80px;
 }
 
-.skills-section h3 {
-  font-size: 24px;
-  margin-bottom: 35px;
+.section-title {
+  font-family: var(--font-main);
+  font-size: var(--font-size-xl);
   color: var(--body-text);
+  margin-bottom: 35px;
 }
 
-.container-skills {
+.skills-list {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 35px;
+  gap: 30px;
 }
 
-.card {
+.skill-card {
   width: 200px;
   height: 200px;
   border: 1px solid var(--item-brd);
@@ -335,17 +368,25 @@ main {
   box-shadow: var(--shadow-box);
 }
 
-.card.visible {
+.skill-card:hover .skill-card-title {
+  opacity: 1;
+}
+
+.skill-card:hover img {
+  transform: scale(1.1);
+}
+
+.skill-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.card.hidden-up {
+.skill-card.hidden-up {
   opacity: 0;
   transform: translateY(50px);
 }
 
-.card-title {
+.skill-card-title {
   position: absolute;
   top: 0;
   width: 100%;
@@ -358,27 +399,24 @@ main {
   opacity: 0;
 }
 
-.card-title span {
+.skill-card-title span {
   background-color: var(--item2-bg);
   border: 1px solid var(--item-brd);
   padding: 8px;
   border-radius: 5px;
 }
 
-.card img {
-  width: 120px;
+
+.skill-card figure img {
+  width: 80%;
+  max-width: 120px;
   height: auto;
   transition: transform 0.3s ease;
 }
 
-.card:hover .card-title {
-  opacity: 1;
-}
-
-.card:hover img {
-  transform: scale(1.1);
-}
-
+/* ================================
+      Projects Section
+================================ */
 .projects-section {
   display: flex;
   flex-wrap: wrap;
@@ -388,8 +426,9 @@ main {
   scroll-margin-top: 80px;
 }
 
-.projects-section h3 {
-  font-size: 24px;
+.projects-section h2 {
+  font-size: var(--font-size-xl);
+  font-family: var(--font-main);
   margin-bottom: 20px;
   color: var(--body-text);
 }
@@ -400,25 +439,28 @@ main {
   gap: 30px;
 }
 
-.project-text {
+.project-header h3 {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-main);
   color: var(--body-text);
 }
 
-.project-text h4 {
-  font-size: 19px;
-  margin-bottom: 10px;
+.project-header p {
+  font-family: var(--font-main);
+  font-size: var(--font-size-sm);
+  color: var(--body-text);
 }
 
-.project-container img {
+.project-figure img {
   max-width: 500px;
   height: auto;
   box-shadow: var(--shadow-box);
 }
 
-
-
-
-.contact-container {
+/* ================================
+      Contact Section
+================================ */
+.contact-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -427,20 +469,46 @@ main {
   border-radius: 15px;
   padding: 30px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.info {
-  width: 400px;
+.contact-section header {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+.contact-section figure {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.contact-section figure svg {
+  display: block;
+}
+
+.contact-title {
+  font-family: var(--font-main);
+  font-size: var(--font-size-xl);
+  color: var(--body-text);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contact-section h3 {
+  font-family: var(--font-main);
+  font-size: var(--font-size-lg);
+  margin-bottom: 10px;
   color: var(--body-text);
 }
 
-.info p {
-  font-size: 18px;
+.contact-section p {
   font-family: var(--font-main);
+  font-size: var(--font-size-sm);
+  color: var(--body-text);
 }
 
-.email {
-  font-weight: bold;
+.contact-section p a {
+  text-decoration: none;
+  color: var(--body-text);
 }
 
 /* ================================
@@ -611,8 +679,8 @@ footer {
     font-weight: bold;
   }
 
-  .avatar svg {
-    width: 100%;
+  .contact-section figure svg {
+    width: 90%;
   }
 }
 
