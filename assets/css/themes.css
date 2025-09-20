@@ -1,23 +1,33 @@
 :root {
-    --body-bg: #ffffff;
+    --body-bg: linear-gradient(to bottom, #FF9043, #fea760);
     --body-text: #000000;
-    --star-bg: #000000;
-    --item-bg: #E7E7E7;
-    --border: #CFCFCF;
-    --icon-bdr: #000000;
+    --star-bg: #ffffff;
+    --item1-bg: rgba(217, 217, 217, 0.5);
+    --item2-bg: rgba(217, 217, 217, 0.8);
+    --item-brd: #D9D9D9;
+    --font-main: monospace;
+    --icon-scroll-clr: #000000;
     --cursordot-bg: #00aaff;
     --border-ring: #000000;
+    --shadow-box: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --link-brd: 2px solid #000000;
+    --icon-bdr: #000000;
 }
 
 body.dark {
-    --body-bg: #000000;
+    --body-bg: linear-gradient(to bottom, #1E1B4B, #3E379A);
     --body-text: #ffffff;
-    --star-bg: #ffffff;    
-    --item-bg: #323232;
-    --border: #4f4f4f;
-    --icon-bdr: #ffffff;
+    --star-bg: #ffffff;
+    --item1-bg: rgba(255, 255, 255, 0.05);
+    --item2-bg: rgba(255, 255, 255, 0.1);
+    --item-brd: #D9D9D9;
+    --font-main: monospace;
+    --icon-scroll-clr: #ffffff;
     --cursordot-bg: #00aaff;
     --border-ring: #ffffff;
+    --shadow-box: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --link-brd: 2px solid #ffffff;
+    --icon-bdr: #ffffff;
 }
 
 body {
