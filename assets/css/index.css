@@ -511,6 +511,68 @@ main {
   color: var(--body-text);
 }
 
+.contact-section nav {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.social {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--item-brd);
+  border-radius: 15px;
+  background-color: var(--item1-bg);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.icon-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.social-icon {
+  width: 40px;
+  transition: transform 0.3s ease;
+}
+
+.title-social {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.title-social span {
+  font-family: var(--font-main);
+  font-size: var(--font-size-xs);
+  color: var(--body-text);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+
+
+
 /* ================================
       Footer
 ================================ */
@@ -521,7 +583,7 @@ footer {
   color: var(--body-text);
   height: 60px;
   font-family: var(--font-main);
-  font-size: 18px;
+  font-size: var(--font-size-sm);
 }
 
 /* ================================
@@ -644,10 +706,8 @@ footer {
 ================================ */
 @media (max-width: 768px) {
   .intro-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 15px;
+    width: 100%;
   }
 
   .project-container {
@@ -674,13 +734,16 @@ footer {
     width: 100%;
   }
 
-  .typewriter {
-    font-size: 20px;
-    font-weight: bold;
+  .intro-text .typewriter {
+    height: 60px;
   }
 
   .contact-section figure svg {
     width: 90%;
+  }
+
+  footer {
+    text-align: center;
   }
 }
 
