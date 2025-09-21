@@ -20,6 +20,7 @@
   });
 })();
 
+
 // ==============================
 //  Animaciones de Cards al Scroll
 // ==============================
@@ -35,6 +36,7 @@
 
   cards.forEach(card => observer.observe(card));
 })();
+
 
 // ==============================
 //  Botón "Scroll to Top"
@@ -53,6 +55,7 @@
   });
 })();
 
+
 // ==============================
 //  Descargar CV
 // ==============================
@@ -64,6 +67,7 @@ function downloadCV() {
   link.click();
   document.body.removeChild(link);
 }
+
 
 // ==============================
 //  Cursor personalizado
@@ -103,6 +107,7 @@ function downloadCV() {
   animate();
 })();
 
+
 // ==============================
 //  Parpadeo doble de luz
 // ==============================
@@ -133,8 +138,6 @@ function downloadCV() {
     ease: "power2.out"
   });
 })();
-
-
 
 
 // ==============================
@@ -245,6 +248,7 @@ typewriterEffect({
   pause: 1500
 });
 
+
 // ==============================
 //  Parpadeo de ojos (Blink)
 // ==============================
@@ -263,6 +267,7 @@ typewriterEffect({
       ease: "power1.out"
     });
 })();
+
 
 // ==============================
 //  Movimiento facial con cursor
@@ -302,3 +307,65 @@ typewriterEffect({
     });
   });
 })();
+
+
+// ==============================
+//  Animación: icono sube + username aparece (reutilizable)
+// ==============================
+(function linkedinHoverReveal() {
+  const containers = document.querySelectorAll(".icon-container");
+  if (!containers.length) return;
+
+  containers.forEach(container => {
+    const social = container.closest(".social");
+    const icon = container.querySelector(".social-icon");
+    const titleSocial = social.querySelector(".title-social");
+    const letters = social.querySelectorAll(".title-social span");
+    let hoverTl;
+
+    container.addEventListener("mouseenter", () => {
+      if (hoverTl) hoverTl.kill();
+
+      hoverTl = gsap.timeline();
+
+      hoverTl
+        .to(icon, {
+          y: -10,
+          scale: 1.2,
+          ease: "power2.out",
+          duration: 0.4
+        }, 0)
+        .to(titleSocial, { opacity: 1, duration: 0.2 }, "-=0.2")
+        .to(letters, {
+          opacity: 1,
+          y: 0,
+          stagger: 0.07,
+          duration: 0.4,
+          ease: "power2.out"
+        }, "-=0.2");
+    });
+
+    container.addEventListener("mouseleave", () => {
+      if (hoverTl) hoverTl.kill();
+
+      hoverTl = gsap.timeline();
+
+      hoverTl
+        .to(icon, {
+          y: 0,
+          scale: 1,
+          ease: "power2.inOut",
+          duration: 0.3
+        }, 0)
+        .to(letters, {
+          opacity: 0,
+          y: 10,
+          stagger: 0.05,
+          duration: 0.3,
+          ease: "power2.in"
+        }, 0)
+        .to(titleSocial, { opacity: 0, duration: 0.2 }, "-=0.2");
+    });
+  });
+})();
+
