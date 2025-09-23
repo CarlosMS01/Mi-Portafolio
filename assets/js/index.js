@@ -3,6 +3,7 @@
 // ==============================
 (function handleThemeToggle() {
   const themeToggleBtn = document.getElementById("theme-toggle");
+  const logos = document.getElementById("logo-git");
   const body = document.body;
 
   const applyTheme = (isDark) => {
@@ -122,21 +123,21 @@ function downloadCV() {
     duration: 0.08,            // cierre rápido
     ease: "power1.in"
   })
-  .to(".Luz", {
-    opacity: 0.7,              // vuelve a encender
-    duration: 0.12,            // apertura más suave
-    ease: "power2.out"
-  })
-  .to(".Luz", {
-    opacity: 0.15,             // segundo apagón
-    duration: 0.08,
-    ease: "power1.in"
-  })
-  .to(".Luz", {
-    opacity: 0.7,              // encendida de nuevo
-    duration: 0.12,
-    ease: "power2.out"
-  });
+    .to(".Luz", {
+      opacity: 0.7,              // vuelve a encender
+      duration: 0.12,            // apertura más suave
+      ease: "power2.out"
+    })
+    .to(".Luz", {
+      opacity: 0.15,             // segundo apagón
+      duration: 0.08,
+      ease: "power1.in"
+    })
+    .to(".Luz", {
+      opacity: 0.7,              // encendida de nuevo
+      duration: 0.12,
+      ease: "power2.out"
+    });
 })();
 
 
@@ -307,3 +308,68 @@ typewriterEffect({
     });
   });
 })();
+
+
+// ==============================
+//  Animacion para los iconos de contacto
+// ==============================
+function socialAnimation({ link, logo, spans }) {
+
+  if (!window.matchMedia("(hover: hover)").matches) return;
+
+  const spanElements = typeof spans === "string"
+    ? document.querySelector(spans).querySelectorAll("span")
+    : spans;
+
+  const linkElement = typeof link === "string" ? document.querySelector(link) : link;
+  const logoElement = typeof logo === "string" ? document.querySelector(logo) : logo;
+
+  linkElement.addEventListener("mouseenter", () => {
+    spanElements.forEach((span, i) => {
+      gsap.to(span, {
+        y: 5,
+        opacity: 1,
+        duration: 0.3,
+        delay: i * 0.05,
+        ease: "power2.out"
+      });
+    });
+
+    gsap.to(logoElement, {
+      scale: 1.2,
+      duration: 0.4,
+      ease: "power2.out"
+    });
+  });
+
+  linkElement.addEventListener("mouseleave", () => {
+    spanElements.forEach((span, i) => {
+      gsap.to(span, {
+        y: 15,
+        opacity: 0,
+        duration: 0.3,
+        delay: i * 0.05,
+        ease: "power2.in"
+      });
+    });
+
+    gsap.to(logoElement, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.in"
+    });
+  });
+}
+
+
+socialAnimation({
+  link: "#link-git",
+  logo: "#logo-git",
+  spans: "#title-git"
+});
+
+socialAnimation({
+  link: "#link-linkedin",
+  logo: "#logo-linkedin",
+  spans: "#title-linkedin"
+});

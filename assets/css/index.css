@@ -50,8 +50,8 @@ body {
 
 .star {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: var(--star-bg);
   border-radius: 50%;
   clip-path: polygon(50% 0%,
@@ -318,20 +318,6 @@ main {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.accions a {
-  text-decoration: none;
-  color: var(--body-text);
-  padding: 5px;
-  border-bottom: 2px solid var(--item-brd);
-  font-family: var(--font-main);
-  font-size: var(--font-size-sm);
-}
-
-.accions a:hover {
-  color: var(--icon-bdr);
-  border-bottom: var(--link-brd);
-}
-
 /* ================================
       Skills Section
 ================================ */
@@ -519,6 +505,50 @@ main {
 .contact-section p a {
   text-decoration: none;
   color: var(--body-text);
+}
+
+.nav-social {
+  display: flex;
+  justify-content: start;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.list-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 15px;
+}
+
+.container-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-social {
+  width: 32px;
+  height: 32px;
+  color: var(--icon-bdr);
+}
+
+.title-social {
+  display: flex;
+  gap: 3px;
+}
+
+.title-social span {
+  display: inline-block;
+  color: var(--body-text);
+  font-family: var(--font-main);
+  font-size: var(--font-size-xs);
+  transform: translateY(15px);
+  opacity: 0;
 }
 
 
