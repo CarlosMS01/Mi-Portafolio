@@ -50,8 +50,8 @@ body {
 
 .star {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: var(--star-bg);
   border-radius: 50%;
   clip-path: polygon(50% 0%,
@@ -266,14 +266,16 @@ main {
   font-family: var(--font-main);
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  height: 70px;
 }
 
 .cursor {
   animation: blinkcursor 0.7s infinite;
 }
 
-#text1, #text2 {
+#text1,
+#text2 {
   white-space: normal;
   max-width: 100%;
 }
@@ -314,20 +316,6 @@ main {
   background-color: var(--item2-bg);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.accions a {
-  text-decoration: none;
-  color: var(--body-text);
-  padding: 5px;
-  border-bottom: 2px solid var(--item-brd);
-  font-family: var(--font-main);
-  font-size: var(--font-size-sm);
-}
-
-.accions a:hover {
-  color: var(--icon-bdr);
-  border-bottom: var(--link-brd);
 }
 
 /* ================================
@@ -420,10 +408,10 @@ main {
 .projects-section {
   display: flex;
   flex-wrap: wrap;
-  place-content: center;
-  align-items: center;
+  justify-content: center;
   gap: 20px;
   scroll-margin-top: 80px;
+  padding: 10px;
 }
 
 .projects-section h2 {
@@ -436,7 +424,12 @@ main {
 .project-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
+}
+
+.project-container header {
+  min-width: 200px;
 }
 
 .project-header h3 {
@@ -453,7 +446,6 @@ main {
 
 .project-figure img {
   max-width: 500px;
-  height: auto;
   box-shadow: var(--shadow-box);
 }
 
@@ -478,12 +470,15 @@ main {
 }
 
 .contact-section figure {
-  flex: 1 1 400px;
-  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--item-brd);
 }
 
 .contact-section figure svg {
-  display: block;
+  flex: 1 1 200px;
+  max-width: 250px;
 }
 
 .contact-title {
@@ -493,6 +488,7 @@ main {
   margin-bottom: 20px;
   text-align: center;
 }
+
 .contact-section h3 {
   font-family: var(--font-main);
   font-size: var(--font-size-lg);
@@ -511,66 +507,49 @@ main {
   color: var(--body-text);
 }
 
-.contact-section nav {
+.nav-social {
   display: flex;
   justify-content: start;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.list-social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 10px;
-  gap: 10px;
+  padding: 0;
+  gap: 15px;
 }
 
-.social {
-  position: relative;
-  width: 120px;
-  height: 120px;
+.container-social {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--item-brd);
-  border-radius: 15px;
-  background-color: var(--item1-bg);
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.icon-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-.social-icon {
-  width: 40px;
-  transition: transform 0.3s ease;
+.logo-social {
+  width: 32px;
+  height: 32px;
+  color: var(--icon-bdr);
 }
 
 .title-social {
-  position: absolute;
-  bottom: 20px;
   display: flex;
-  gap: 4px;
-  z-index: 1;
-  pointer-events: none;
+  gap: 3px;
 }
 
 .title-social span {
+  display: inline-block;
+  color: var(--body-text);
   font-family: var(--font-main);
   font-size: var(--font-size-xs);
-  color: var(--body-text);
+  transform: translateY(15px);
   opacity: 0;
-  transform: translateY(10px);
 }
-
-
 
 
 /* ================================
@@ -738,8 +717,13 @@ footer {
     height: 60px;
   }
 
+  .contact-section {
+    gap: 0;
+    padding: 15px;
+  }
+
   .contact-section figure svg {
-    width: 90%;
+    width: 80%;
   }
 
   footer {

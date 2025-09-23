@@ -3,6 +3,7 @@
 // ==============================
 (function handleThemeToggle() {
   const themeToggleBtn = document.getElementById("theme-toggle");
+  const logos = document.getElementById("logo-git");
   const body = document.body;
 
   const applyTheme = (isDark) => {
@@ -122,21 +123,21 @@ function downloadCV() {
     duration: 0.08,            // cierre rápido
     ease: "power1.in"
   })
-  .to(".Luz", {
-    opacity: 0.7,              // vuelve a encender
-    duration: 0.12,            // apertura más suave
-    ease: "power2.out"
-  })
-  .to(".Luz", {
-    opacity: 0.15,             // segundo apagón
-    duration: 0.08,
-    ease: "power1.in"
-  })
-  .to(".Luz", {
-    opacity: 0.7,              // encendida de nuevo
-    duration: 0.12,
-    ease: "power2.out"
-  });
+    .to(".Luz", {
+      opacity: 0.7,              // vuelve a encender
+      duration: 0.12,            // apertura más suave
+      ease: "power2.out"
+    })
+    .to(".Luz", {
+      opacity: 0.15,             // segundo apagón
+      duration: 0.08,
+      ease: "power1.in"
+    })
+    .to(".Luz", {
+      opacity: 0.7,              // encendida de nuevo
+      duration: 0.12,
+      ease: "power2.out"
+    });
 })();
 
 
@@ -310,62 +311,65 @@ typewriterEffect({
 
 
 // ==============================
-//  Animación: icono sube + username aparece (reutilizable)
+//  Animacion para los iconos de contacto
 // ==============================
-(function linkedinHoverReveal() {
-  const containers = document.querySelectorAll(".icon-container");
-  if (!containers.length) return;
+function socialAnimation({ link, logo, spans }) {
 
-  containers.forEach(container => {
-    const social = container.closest(".social");
-    const icon = container.querySelector(".social-icon");
-    const titleSocial = social.querySelector(".title-social");
-    const letters = social.querySelectorAll(".title-social span");
-    let hoverTl;
+  if (!window.matchMedia("(hover: hover)").matches) return;
 
-    container.addEventListener("mouseenter", () => {
-      if (hoverTl) hoverTl.kill();
+  const spanElements = typeof spans === "string"
+    ? document.querySelector(spans).querySelectorAll("span")
+    : spans;
 
-      hoverTl = gsap.timeline();
+  const linkElement = typeof link === "string" ? document.querySelector(link) : link;
+  const logoElement = typeof logo === "string" ? document.querySelector(logo) : logo;
 
-      hoverTl
-        .to(icon, {
-          y: -10,
-          scale: 1.2,
-          ease: "power2.out",
-          duration: 0.4
-        }, 0)
-        .to(titleSocial, { opacity: 1, duration: 0.2 }, "-=0.2")
-        .to(letters, {
-          opacity: 1,
-          y: 0,
-          stagger: 0.07,
-          duration: 0.4,
-          ease: "power2.out"
-        }, "-=0.2");
+  linkElement.addEventListener("mouseenter", () => {
+    spanElements.forEach((span, i) => {
+      gsap.to(span, {
+        y: 5,
+        opacity: 1,
+        duration: 0.3,
+        delay: i * 0.05,
+        ease: "power2.out"
+      });
     });
 
-    container.addEventListener("mouseleave", () => {
-      if (hoverTl) hoverTl.kill();
-
-      hoverTl = gsap.timeline();
-
-      hoverTl
-        .to(icon, {
-          y: 0,
-          scale: 1,
-          ease: "power2.inOut",
-          duration: 0.3
-        }, 0)
-        .to(letters, {
-          opacity: 0,
-          y: 10,
-          stagger: 0.05,
-          duration: 0.3,
-          ease: "power2.in"
-        }, 0)
-        .to(titleSocial, { opacity: 0, duration: 0.2 }, "-=0.2");
+    gsap.to(logoElement, {
+      scale: 1.2,
+      duration: 0.4,
+      ease: "power2.out"
     });
   });
-})();
 
+  linkElement.addEventListener("mouseleave", () => {
+    spanElements.forEach((span, i) => {
+      gsap.to(span, {
+        y: 15,
+        opacity: 0,
+        duration: 0.3,
+        delay: i * 0.05,
+        ease: "power2.in"
+      });
+    });
+
+    gsap.to(logoElement, {
+      scale: 1,
+      duration: 0.4,
+      ease: "power2.in"
+    });
+  });
+}
+
+
+socialAnimation({
+  link: "#link-git",
+  logo: "#logo-git",
+  spans: "#title-git"
+});
+
+socialAnimation({
+  link: "#link-linkedin",
+  logo: "#logo-linkedin",
+  spans: "#title-linkedin"
+});
