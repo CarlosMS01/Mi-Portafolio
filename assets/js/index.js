@@ -3,7 +3,6 @@
 // ==============================
 (function handleThemeToggle() {
   const themeToggleBtn = document.getElementById("theme-toggle");
-  const logos = document.getElementById("logo-git");
   const body = document.body;
 
   const applyTheme = (isDark) => {
@@ -181,15 +180,6 @@ function downloadCV() {
 
 
 // ==============================
-//  Ejecucion de las animaciones
-// ==============================
-window.addEventListener("load", () => {
-  parpadeoDoble();
-  animarBarCodes();
-});
-
-
-// ==============================
 //  Animación de texto tipo máquina de escribir
 // ==============================
 function typewriterEffect({ selector, texts, delay = 100, eraseDelay = 50, pause = 2000 }) {
@@ -360,7 +350,6 @@ function socialAnimation({ link, logo, spans }) {
     });
   });
 }
-
 
 socialAnimation({
   link: "#link-git",
